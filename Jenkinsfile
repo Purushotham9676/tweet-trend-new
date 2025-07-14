@@ -20,7 +20,7 @@ pipeline {
         }
     } 
        }
-       stage('SonarQube analysis'){
+       stage("SonarQube analysis"){
        environment {
          scannerHome = tool 'sonar-scanner' //sonar scanner name should be same as what we have defined in the tools
     }
