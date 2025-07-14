@@ -2,7 +2,7 @@ pipeline {
     agent { label 'maven' }
 
     environment {
-        PATH = "/opt/apache-maven-3.9.10/bin:$PATH"
+        PATH = "/usr/share/maven/bin:$PATH"
     }
        stages {
         stage('Checkout') {
