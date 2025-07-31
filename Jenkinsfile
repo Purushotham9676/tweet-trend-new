@@ -1,4 +1,6 @@
 def registry = 'https://purushotham9676.jfrog.io'
+def imageName = 'purushotham9676.jfrog.io/9676-docker-local/9676trend'
+def version   = '2.1.3'
 
 pipeline {
     agent {label 'maven'}
@@ -59,5 +61,28 @@ environment {
         }   
     }   
 
+    stage(" Docker Build ") {
+     steps {
+        script {
+               echo '<--------------- Docker Build Started --------------->'
+               app = docker.build(imageName+":"+version)
+               echo '<--------------- Docker Build Ends --------------->'
+            }
+          }
+        }
+    
+    stage (" Docker Publish "){
+        steps {
+            script {
+                echo '<--------------- Docker Publish Started --------------->'  
+                docker.withRegistry(registry, 'jfrog'){
+                app.push()
+                }    
+                echo '<--------------- Docker Publish Ended --------------->'  
+                }
+            }
+        }
+
+    
 }
 }
