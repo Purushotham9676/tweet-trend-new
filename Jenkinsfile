@@ -43,7 +43,7 @@ environment {
                           "files": [
                             {
                               "pattern": "jarstaging/(*)",
-                              "target": "purushotham-snapshot-libs-release-local/{1}",
+                              "target": "purushotham-snapshot-libs-snapshot-local/{1}",
                               "flat": "false",
                               "props" : "${properties}",
                               "exclusions": [ "*.sha1", "*.md5"]
